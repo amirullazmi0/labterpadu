@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "afterDelay",
+    "beautify.config": "",
+    "blade.format.enable": true,
+    "prettier.bracketSameLine": true,
+    "prettier.endOfLine": "auto",
+    "prettier.proseWrap": "preserve",
+    "prettier.singleQuote": false
+}
