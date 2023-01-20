@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LabController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SuperController;
@@ -17,8 +18,13 @@ use App\Http\Controllers\SuperController;
 |
 */
 
-Route::get('/', [loginController::class, 'index']);
-Route::get('/home', [loginController::class, 'index']);
+Route::get('/', [UserController::class, 'index']);
+Route::get('/home', [UserController::class, 'index']);
+
+Route::get('/daftar-ruangan', [UserController::class, 'ruangan']);
+Route::get('/daftar-ruangan/{ruangan:name}', [UserController::class, 'show_ruangan']);
+
+Route::get('/daftar-alat', [UserController::class, 'alat']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout']);
