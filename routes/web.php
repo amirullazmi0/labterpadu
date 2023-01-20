@@ -19,7 +19,6 @@ use App\Http\Controllers\SuperController;
 
 Route::get('/', [loginController::class, 'index']);
 Route::get('/home', [loginController::class, 'index']);
-
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -97,4 +96,3 @@ Route::middleware(['auth', 'admin:1', 'admin:2'])->group(function () {
     Route::post('/aadmin/laboratorium/p-alat/{p_alat:id}/update', [AdminController::class, 'update_p_alat']);
     Route::get('/aadmin/laboratorium/p-alat/delete/{p_alat:id}', [AdminController::class, 'destroy_p_alat']);
 });
-// ADMIN
