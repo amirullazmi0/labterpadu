@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
 
-        return view('/admin/index', [
+        return view('/user/index', [
             "title" => "Halaman Dashboard",
             "active" => "dashboard",
             "nomor" => 1,
