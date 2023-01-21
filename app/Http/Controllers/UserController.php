@@ -20,6 +20,7 @@ class UserController extends Controller
             "title" => "Halaman Dashboard",
             "active" => "dashboard",
             "nomor" => 1,
+            "navlab" => Lab::first(),
             "lab" => Lab::all(),
             "user" => User::all(),
             // "jumlah_alat" => $j_alat,
@@ -31,9 +32,9 @@ class UserController extends Controller
 
         return view('/user/ruangan', [
             "title" => "Daftar Ruangan",
-            "active" => "dashboard",
+            "active" => "ruangan",
             "nomor" => 1,
-            "lab" => Lab::all(),
+            "navlab" => Lab::first(),
             "ruangan" => Ruangan::all(),
             "user" => User::all(),
             // "jumlah_alat" => $j_alat,
@@ -44,24 +45,44 @@ class UserController extends Controller
         // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
 
         return view('/user/show_ruangan', [
-            "title" => "Daftar Ruangan",
-            "active" => "dashboard",
+            "title" => $ruangan->name,
+            "active" => "ruangan",
             "nomor" => 1,
+            "navlab" => Lab::first(),
             "lab" => Lab::all(),
             "ruangan" => $ruangan,
             "user" => User::all(),
             // "jumlah_alat" => $j_alat,
         ]);
     }
-    public function alat()
+    public function alat(Lab $lab)
     {
         // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
 
         return view('/user/alat', [
             "title" => "Daftar Alat",
-            "active" => "dashboard",
+            "active" => "alat",
             "nomor" => 1,
+            "alat" => Alat::where('lab_id', '=', $lab->id)->get(),
+            "navlab" => Lab::first(),
+            "lab" => $lab,
+            "daftarlab" => lab::all(),
+            "user" => User::all(),
+            // "jumlah_alat" => $j_alat,
+        ]);
+    }
+
+    public function show_alat(Alat $alat)
+    {
+        // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
+
+        return view('/user/show_alat', [
+            "title" => $alat->name,
+            "active" => "ruangan",
+            "nomor" => 1,
+            "navlab" => Lab::first(),
             "lab" => Lab::all(),
+            "alat" => $alat,
             "user" => User::all(),
             // "jumlah_alat" => $j_alat,
         ]);

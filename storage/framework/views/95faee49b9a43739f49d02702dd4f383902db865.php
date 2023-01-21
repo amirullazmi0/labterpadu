@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 
 <div class="card">
@@ -16,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="full-name" class="form-label">Full Name</label>
+                            <label for="full-name" class="form-label">Nama Lengkap</label>
                             <input type="text" class="form-control <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -134,7 +132,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="lab_id" id="exampleFormControlSelect1">
-                                <option selected="" disabled hidden>Select Lab</option>
+                                <option selected="" disabled hidden>Pilih Lab</option>
                                 <?php $__currentLoopData = $lab; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lab): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($lab->id); ?>"><?php echo e($lab->name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -183,7 +181,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="col-lg-12">
                     <div class="form-group">
-                        <label for="phone" class="form-label">Address</label>
+                        <label for="phone" class="form-label">Alamat</label>
                         <textarea class="form-control  <?php $__errorArgs = ['address'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

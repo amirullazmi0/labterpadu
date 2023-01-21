@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('alat', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('lab_id');
+            $table->foreignId('lab_id');
             $table->longText('desc')->nullable();
             $table->string('photos')->nullable();
             $table->timestamps();

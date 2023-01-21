@@ -1,6 +1,6 @@
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar fixed-top shadow shadow-sm">
     <div class="container-fluid navbar-inner">
-        <a href="" class="navbar-brand">
+        <a href="/" class="navbar-brand">
             <!--Logo start-->
             <div class="d-none d-sm-block d-md-block d-lg-block">
                 <img class="img-fluid me-2" src="/img/untan.png" style="max-height: 60px" alt="">
@@ -32,10 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/daftar-ruangan">Ruangan</a>
+                    <a class="nav-link  {{ ($active === 'dashboard') ? 'active' : ''; }}" href="/">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/daftar-alat">Alat</a>
+                    <a class="nav-link  {{ ($active === 'ruangan') ? 'active' : ''; }}" href="/daftar-ruangan">Ruangan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ ($active === 'alat') ? 'active' : ''; }}" href="/daftar-alat/{{ $navlab->id }}">Alat</a>
                 </li>
                 {{-- <li class="nav-item dropdown">
                     <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
