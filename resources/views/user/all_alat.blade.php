@@ -14,8 +14,8 @@
                     <a class="daftar-lab m-2 {{ ($daftaraktif == 'active') ? 'active' : ''; }}" href="/daftar-alat">Semua</a>
                     @foreach ($daftarlab as $daftarlab)
                     |
-                    <a class="daftar-lab m-2 {{ ($daftarlab->id == $lab->id) ? 'active' : ''; }}"
-                        href="/daftar-alat/{{ $daftarlab->name }}">{{ $daftarlab->name }}</a>
+                    <a class="daftar-lab m-2 {{ ($daftaraktif == 'zzz') ? 'active' : ''; }}" href="/daftar-alat/{{ $daftarlab->name }}">{{
+                        $daftarlab->name }}</a>
                     @endforeach
                 </small>
             </div>
@@ -32,7 +32,7 @@
                                 <img class="img-fluid" src="{{ asset('img/labterpadu.jpg') }}" style="max-height: 120px;" alt="">
                                 @endif
                                 <h6 class="text-decoration-none m-2">
-                                    <a class="text-black" href="/daftar-alat/{{ $lab->name }}/{{ $alat->name }}">{{ $alat->name }}</a>
+                                    <a class="text-black" href="/daftar-alat/{{ $alat->lab->name }}/{{ $alat->name }}">{{ $alat->name }}</a>
                                 </h6>
                             </div>
                         </div>

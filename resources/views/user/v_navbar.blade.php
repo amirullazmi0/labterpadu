@@ -34,24 +34,41 @@
                 <li class="nav-item">
                     <a class="nav-link  {{ ($active === 'dashboard') ? 'active' : ''; }}" href="/">Dashboard</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link  {{ ($active === 'ruangan') ? 'active' : ''; }}" href="/daftar-ruangan">Ruangan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  {{ ($active === 'alat') ? 'active' : ''; }}" href="/daftar-alat/{{ $navlab->id }}">Alat</a>
-                </li>
-                {{-- <li class="nav-item dropdown">
-                    <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <img class="img-fluid" style="max-height: 40px" src="{{ asset('img/user-default.jpg') }}" alt="">
+                </li> --}}
+                {{-- <li class="nav-item">
+                    <a class="nav-link  {{ ($active === 'alat') ? 'active' : ''; }}" href="/daftar-alat">Alat</a>
+                </li> --}}
+                <li class="nav-item dropdown">
+                    <a class="py-0 nav-link {{ ($active === 'ruangan') ? 'active' : ''; }} d-flex align-items-center" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Ruangan
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="">Profil</a></li>
-                        <li><a class="dropdown-item" href="">Profil</a></li>
-                        <hr>
-                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        <li class="nav-link">
+                            <a class="dropdown-item {{ ($active === 'ruangan') ? 'active' : ''; }}" href="/daftar-ruangan">Daftar
+                                Ruangan</a>
+                        </li>
+                        <li class="nav-link">
+                            <a class="dropdown-item" href="">File Peminjaman</a>
+                        </li>
                     </ul>
-                </li> --}}
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="py-0 nav-link {{ ($active === 'alat') ? 'active' : ''; }} d-flex align-items-center" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Alat
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li class="nav-link">
+                            <a class="dropdown-item {{ ($active === 'alat') ? 'active' : ''; }}" href="/daftar-alat">Daftar Alat</a>
+                        </li>
+                        <li class="nav-link">
+                            <a class="dropdown-item" href="">File Peminjaman</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

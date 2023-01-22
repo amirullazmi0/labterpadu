@@ -24,8 +24,9 @@ Route::get('/home', [UserController::class, 'index']);
 Route::get('/daftar-ruangan', [UserController::class, 'ruangan']);
 Route::get('/daftar-ruangan/{ruangan:name}', [UserController::class, 'show_ruangan']);
 
-Route::get('/daftar-alat/{lab:id}', [UserController::class, 'alat']);
-Route::get('/daftar-alat/{lab:id}/{alat:name}', [UserController::class, 'show_alat']);
+Route::get('/daftar-alat', [UserController::class, 'all_alat']);
+Route::get('/daftar-alat/{lab:name}', [UserController::class, 'alat']);
+Route::get('/daftar-alat/{lab:name}/{alat:name}', [UserController::class, 'show_alat']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');

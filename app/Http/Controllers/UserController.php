@@ -55,6 +55,23 @@ class UserController extends Controller
             // "jumlah_alat" => $j_alat,
         ]);
     }
+    public function all_alat()
+    {
+        // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
+
+        return view('/user/all_alat', [
+            "title" => "Daftar Alat",
+            "active" => "alat",
+            "nomor" => 1,
+            "daftaraktif" => 'active',
+            "alat" => Alat::orderBy('name', 'asc')->get(),
+            "navlab" => Lab::first(),
+            "lab" => Lab::all(),
+            "daftarlab" => lab::all(),
+            "user" => User::all(),
+            // "jumlah_alat" => $j_alat,
+        ]);
+    }
     public function alat(Lab $lab)
     {
         // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
@@ -63,6 +80,7 @@ class UserController extends Controller
             "title" => "Daftar Alat",
             "active" => "alat",
             "nomor" => 1,
+            "daftaraktif" => '',
             "alat" => Alat::where('lab_id', '=', $lab->id)->latest()->get(),
             "navlab" => Lab::first(),
             "lab" => $lab,
@@ -77,7 +95,7 @@ class UserController extends Controller
         // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
 
         return view('/user/show_alat', [
-            "title" => $alat->name,
+            "title" => $alat->name. " | ". $lab->name,
             "active" => "alat",
             "nomor" => 1,
             "navlab" => Lab::first(),
