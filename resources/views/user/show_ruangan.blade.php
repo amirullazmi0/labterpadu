@@ -16,16 +16,16 @@
                     <img class="img-fluid" src="{{ asset('img/labterpadu.jpg') }}" alt="">
                     @endif
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 mt-3">
                     <div class="row">
-                        <div class="col-2">Nama</div>
+                        <div class="col-4">Nama</div>
                         <div class="col-1">:</div>
-                        <div class="col-9">{{ $ruangan->name }}</div>
+                        <div class="col-6">{{ $ruangan->name }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-2">Deskripsi</div>
+                        <div class="col-4">Deskripsi</div>
                         <div class="col-1">:</div>
-                        <div class="col-9" style="text-align: justify;">{{ $ruangan->desc }}</div>
+                        <div class="col-12" style="text-align: justify;">{{ $ruangan->desc }}</div>
                     </div>
                 </div>
             </div>

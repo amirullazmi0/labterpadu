@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('p_ruangan', function (Blueprint $table) {
             $table->id();
             $table->string('name', 30);
-            $table->foreignId('ruangan_id')->on('ruangan');
+            $table->foreign('ruangan_id')->references('id')->on('ruangan');
             $table->date('date_start');
             $table->date('date_end')->nullable();
             $table->time('time_start');

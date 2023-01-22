@@ -72,16 +72,16 @@ class UserController extends Controller
         ]);
     }
 
-    public function show_alat(Alat $alat)
+    public function show_alat(Lab $lab, Alat $alat)
     {
         // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
 
         return view('/user/show_alat', [
             "title" => $alat->name,
-            "active" => "ruangan",
+            "active" => "alat",
             "nomor" => 1,
             "navlab" => Lab::first(),
-            "lab" => Lab::all(),
+            "lab" => $lab,
             "alat" => $alat,
             "user" => User::all(),
             // "jumlah_alat" => $j_alat,

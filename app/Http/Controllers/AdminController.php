@@ -200,8 +200,8 @@ class AdminController extends Controller
 
         alat::create($validateData);
 
-        Lab::where('id', $request->id)
-            ->update(['alat_id' => $request->id]);
+        // Lab::where('id', $request->lab_id)
+        //     ->save(['alat_id' => $request->id]);
 
 
         return redirect('/aadmin/laboratorium/alat')->with('success', 'Add Alat Success !!');

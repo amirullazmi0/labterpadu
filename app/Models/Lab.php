@@ -13,7 +13,7 @@ class Lab extends Model
 
     protected $guarded = ['id'];
 
-    public function alat()
+    public function alats()
     {
         return $this->hasMany(Alat::class);
     }

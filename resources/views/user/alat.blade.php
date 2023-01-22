@@ -31,7 +31,7 @@
                                 <img class="img-fluid" src="{{ asset('img/labterpadu.jpg') }}" style="max-height: 120px;" alt="">
                                 @endif
                                 <h6 class="text-decoration-none m-2">
-                                    <a class="text-black" href="/daftar-alat/{{ $alat->lab_id }}/{{ $alat->name }}">{{ $alat->name }}</a>
+                                    <a class="text-black" href="/daftar-alat/{{ $lab->id }}/{{ $alat->name }}">{{ $alat->name }}</a>
                                 </h6>
                             </div>
                         </div>

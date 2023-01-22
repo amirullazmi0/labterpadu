@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('desc')->nullable();
             $table->string('photo')->nullable();
-            $table->foreignId('alat_id')->on('alat')->nullable()->onDelete('cascade');
+            $table->foreign('alat_id')->references('id')->on('alat')->nullable();
             $table->timestamps();
         });
     }

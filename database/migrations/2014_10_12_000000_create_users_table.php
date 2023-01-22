@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('level');
-            $table->foreignId('lab_id');
+            $table->foreign('lab_id')->references('id')->on('lab');
             $table->longText('address')->nullable();
             $table->string('photo')->nullable();
             $table->rememberToken();
