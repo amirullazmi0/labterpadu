@@ -32,15 +32,6 @@
 
     <script src='fullcalendar/dist/index.global.js'></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth'
-            });
-            calendar.render();
-        });
-    </script>
     <!-- Fullcalender CSS
     <link rel='stylesheet' href='/assets/vendor/fullcalendar/core/main.css' />
     <link rel='stylesheet' href='/assets/vendor/fullcalendar/daygrid/main.css' />

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Lab;
 use App\Models\Alat;
 use App\Models\User;
+use App\Models\P_alat;
+use App\Models\Ruangan;
+use App\Models\P_ruangan;
+use App\Models\Temp_berkas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Ruangan;
-use App\Models\Temp_berkas;
 
 class UserController extends Controller
 {
@@ -17,7 +19,7 @@ class UserController extends Controller
     {
         // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
 
-        return view('/user/index', [
+        $data = [
             "title" => "Halaman Dashboard",
             "active" => "dashboard",
             "nomor" => 1,
@@ -25,8 +27,15 @@ class UserController extends Controller
             "navlab" => Lab::first(),
             "lab" => Lab::all(),
             "user" => User::all(),
-            // "jumlah_alat" => $j_alat,
-        ]);
+            "p_ruangan" => P_ruangan::all(),
+            "p_alat" => P_alat::all(),
+        ];
+
+        $p_ruangan = P_ruangan::all();
+
+        return view('/user/index', ($data));
+
+        return response()->json($p_ruangan);
     }
     public function ruangan()
     {
