@@ -22,11 +22,11 @@
                 <div class="row">
                     @if ($alat->count())
                     @foreach ($alat as $alat)
-                    <div class="col-lg-3 mt-2">
-                        <div class="bas shadow shadow-sm border" style="border-radius: 20px;">
+                    <div class="col-lg-3 mt-2 ">
+                        <div class="bas shadow shadow-sm border alat" style="border-radius: 10px;">
                             <div class="text-center p-3">
                                 @if ($alat->photos)
-                                <img class="img-fluid" src="{{ asset('storage/'.$alat->photos) }}" style="max-height: 120px;" alt="">
+                                <img class="img-fluid " src="{{ asset('storage/'.$alat->photos) }}" style="max-height: 120px;" alt="">
                                 @else
                                 <img class="img-fluid" src="{{ asset('img/labterpadu.jpg') }}" style="max-height: 120px;" alt="">
                                 @endif

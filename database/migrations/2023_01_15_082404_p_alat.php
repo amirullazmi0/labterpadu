@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('p_alat', function (Blueprint $table) {
             $table->id();
             $table->string('name', 30);
-            $table->foreign('alat_id')->references('id')->on('alat');
-            $table->foreign('lab_id')->references('id')->on('lab');
+            $table->foreignid('alat_id')->on('alat');
+            $table->foreignId('lab_id')->on('lab');
             $table->date('date_start');
             $table->date('date_end')->nullable();
             // $table->time('time_start');

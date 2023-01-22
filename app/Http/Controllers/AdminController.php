@@ -164,7 +164,7 @@ class AdminController extends Controller
     {
         // $getalat = Alat::where('lab_id', '=', auth()->user()->lab_id)->get();
         return view('/admin/alat', [
-            "title" => "Daftar Alat " . auth()->user()->lab->name,
+            "title" => "Daftar Alat",
             "active" => "alat",
             "user" => User::all(),
             "lab" => Lab::all(),

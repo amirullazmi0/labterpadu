@@ -6,8 +6,6 @@ namespace Database\Seeders;
 
 use App\Models\Lab;
 use App\Models\User;
-use App\Models\Admin;
-use App\Models\Superadmin;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

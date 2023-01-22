@@ -4,7 +4,8 @@
 
 <div class="index">
     <div class="p-3 mt-5">
-        <h3 class="text-uppercase fw-bold text-white">{{ $alat->name }}</h3>
+        <h3 class="d-inline text-uppercase fw-bold text-white">{{ $alat->name }} | </h3>
+        <p class="d-inline text-white">{{ $alat->lab->name }}</p>
     </div>
     <div class="card">
         <div class="card-body">

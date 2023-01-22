@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        @include('user.v_footer')
+        @include('template.v_footer')
     </main>
 
 

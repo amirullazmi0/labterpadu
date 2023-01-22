@@ -11,7 +11,7 @@
             <div class="row">
                 @foreach ($ruangan as $ruangan)
                 <div class="col-lg-3 mt-2">
-                    <div class="bas shadow shadow-sm border" style="border-radius: 20px;">
+                    <div class="bas shadow shadow-sm border" style="border-radius: 10px;">
                         <div class="text-center p-3">
                             @if ($ruangan->photos)
                             <img class="img-fluid" src="{{ asset('storage/'.$ruangan->photos) }}" style="max-height: 120px;" alt="">

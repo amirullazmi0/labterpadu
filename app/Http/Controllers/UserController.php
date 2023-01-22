@@ -63,7 +63,7 @@ class UserController extends Controller
             "title" => "Daftar Alat",
             "active" => "alat",
             "nomor" => 1,
-            "alat" => Alat::where('lab_id', '=', $lab->id)->get(),
+            "alat" => Alat::where('lab_id', '=', $lab->id)->latest()->get(),
             "navlab" => Lab::first(),
             "lab" => $lab,
             "daftarlab" => lab::all(),
