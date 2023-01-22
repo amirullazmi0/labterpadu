@@ -41,7 +41,7 @@
                     @else
                     <div class="no-alat text-center">
                         <small>
-                            Tidak Ada Alat Pada Lab {{ $lab->name }}
+                            Tidak Ada Alat Pada Lab
                         </small>
                     </div>
                     @endif

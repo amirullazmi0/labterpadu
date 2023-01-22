@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Ruangan;
+use App\Models\Temp_berkas;
 
 class UserController extends Controller
 {
@@ -20,6 +21,7 @@ class UserController extends Controller
             "title" => "Halaman Dashboard",
             "active" => "dashboard",
             "nomor" => 1,
+            "temp_berkas" => Temp_berkas::all(),
             "navlab" => Lab::first(),
             "lab" => Lab::all(),
             "user" => User::all(),
@@ -34,6 +36,7 @@ class UserController extends Controller
             "title" => "Daftar Ruangan",
             "active" => "ruangan",
             "nomor" => 1,
+            "temp_berkas" => Temp_berkas::all(),
             "navlab" => Lab::first(),
             "ruangan" => Ruangan::all(),
             "user" => User::all(),
@@ -48,6 +51,7 @@ class UserController extends Controller
             "title" => $ruangan->name,
             "active" => "ruangan",
             "nomor" => 1,
+            "temp_berkas" => Temp_berkas::all(),
             "navlab" => Lab::first(),
             "lab" => Lab::all(),
             "ruangan" => $ruangan,
@@ -63,6 +67,7 @@ class UserController extends Controller
             "title" => "Daftar Alat",
             "active" => "alat",
             "nomor" => 1,
+            "temp_berkas" => Temp_berkas::all(),
             "daftaraktif" => 'active',
             "alat" => Alat::orderBy('name', 'asc')->get(),
             "navlab" => Lab::first(),
@@ -80,6 +85,7 @@ class UserController extends Controller
             "title" => "Daftar Alat",
             "active" => "alat",
             "nomor" => 1,
+            "temp_berkas" => Temp_berkas::all(),
             "daftaraktif" => '',
             "alat" => Alat::where('lab_id', '=', $lab->id)->latest()->get(),
             "navlab" => Lab::first(),
@@ -95,9 +101,10 @@ class UserController extends Controller
         // $j_alat = Alat::where('lab_id', '=', auth()->user()->lab_id)->count();
 
         return view('/user/show_alat', [
-            "title" => $alat->name. " | ". $lab->name,
+            "title" => $alat->name . " | " . $lab->name,
             "active" => "alat",
             "nomor" => 1,
+            "temp_berkas" => Temp_berkas::all(),
             "navlab" => Lab::first(),
             "lab" => $lab,
             "alat" => $alat,

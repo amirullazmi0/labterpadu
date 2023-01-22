@@ -6,6 +6,7 @@ use App\Models\Lab;
 use App\Models\User;
 use App\Models\Ruangan;
 use App\Models\P_ruangan;
+use App\Models\Temp_berkas;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
@@ -44,6 +45,7 @@ class SuperController extends Controller
             "title" => "Halaman Profil",
             "active" => "",
             "user" => $user,
+            "temp_berkas" => Temp_berkas::all(),
             "lab" => Lab::all(),
             "nomor" => 1,
         ]);
@@ -71,6 +73,28 @@ class SuperController extends Controller
         ]);
 
         return back()->with("success", "Update Password Success");
+    }
+
+    public function update_berkas(Temp_berkas $temp_berkas, Request $request)
+    {
+        if ($request->file('berkas') != null) {
+
+            $rules['berkas'] = 'file|max:2048';
+
+            $validateData = $request->validate($rules);
+
+            if ($temp_berkas->berkas != null) {
+                File::delete('storage/' . $temp_berkas->berkas);
+            }
+
+            $validateData['berkas'] = $request->file('berkas')->store('/file/template_berkas');
+
+            Temp_berkas::whereId($temp_berkas->id)->update([
+                'berkas' => $validateData['berkas']
+            ]);
+        }
+
+        return redirect('/admin/profil/' . auth()->user()->name)->with('success', 'Update Success !!');
     }
 
     public function lab()

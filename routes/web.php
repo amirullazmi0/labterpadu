@@ -40,6 +40,7 @@ Route::middleware(['auth', 'super:0'])->group(function () {
 
     Route::get('/admin', [SuperController::class, 'index']);
     Route::get('/admin/profil/{user:name}', [SuperController::class, 'profil']);
+    Route::post('/admin/temp-berkas/{temp_berkas:id}/update', [SuperController::class, 'update_berkas']);
     Route::post('/admin/password/{user:name}/update', [SuperController::class, 'update_password']);
 
     Route::get('/admin/laboratorium', [SuperController::class, 'lab']);

@@ -34,39 +34,23 @@
                 <li class="nav-item">
                     <a class="nav-link  {{ ($active === 'dashboard') ? 'active' : ''; }}" href="/">Dashboard</a>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link  {{ ($active === 'ruangan') ? 'active' : ''; }}" href="/daftar-ruangan">Ruangan</a>
-                </li> --}}
-                {{-- <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link  {{ ($active === 'alat') ? 'active' : ''; }}" href="/daftar-alat">Alat</a>
-                </li> --}}
-                <li class="nav-item dropdown">
-                    <a class="py-0 nav-link {{ ($active === 'ruangan') ? 'active' : ''; }} d-flex align-items-center" href="#"
-                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ruangan
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li class="nav-link">
-                            <a class="dropdown-item {{ ($active === 'ruangan') ? 'active' : ''; }}" href="/daftar-ruangan">Daftar
-                                Ruangan</a>
-                        </li>
-                        <li class="nav-link">
-                            <a class="dropdown-item" href="">File Peminjaman</a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="py-0 nav-link {{ ($active === 'alat') ? 'active' : ''; }} d-flex align-items-center" href="#"
-                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Alat
+                    <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Download
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        @foreach ($temp_berkas as $temp)
                         <li class="nav-link">
-                            <a class="dropdown-item {{ ($active === 'alat') ? 'active' : ''; }}" href="/daftar-alat">Daftar Alat</a>
+                            <a class="dropdown-item" href="{{ asset('storage/'.$temp->berkas) }}">{{ $temp->name }}</a>
                         </li>
-                        <li class="nav-link">
-                            <a class="dropdown-item" href="">File Peminjaman</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
             </ul>

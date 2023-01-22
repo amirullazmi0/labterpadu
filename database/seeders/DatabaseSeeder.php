@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Lab;
+use App\Models\Temp_berkas;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -84,6 +85,21 @@ class DatabaseSeeder extends Seeder
 
         foreach ($lab as $key => $value) {
             Lab::create($value);
+        }
+
+        $temp_berkas = [
+            [
+                'name' => 'Template Peminjaman Ruangan',
+                'berkas' => '',
+            ],
+            [
+                'name' => 'Template Peminjaman Alat',
+                'berkas' => '',
+            ],
+        ];
+
+        foreach ($temp_berkas as $key => $value) {
+            Temp_berkas::create($value);
         }
     }
 }
