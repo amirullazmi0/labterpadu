@@ -8,17 +8,18 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <div class="row">
-                <div class="d-inline">
-                    @foreach ($daftarlab as $daftarlab)
-                    <small>
-                        <a class="daftar-lab m-2 {{ ($daftarlab->id == $lab->id) ? 'active' : ''; }}"
-                            href="/daftar-alat/{{ $daftarlab->id }}">{{ $daftarlab->name }}</a>
-                        |
-                    </small>
-                    @endforeach
-                </div>
-                <div class="alat mt-3">
+
+            <div class="d-inline">
+                @foreach ($daftarlab as $daftarlab)
+                <small>
+                    <a class="daftar-lab m-2 {{ ($daftarlab->id == $lab->id) ? 'active' : ''; }}"
+                        href="/daftar-alat/{{ $daftarlab->id }}">{{ $daftarlab->name }}</a>
+                    |
+                </small>
+                @endforeach
+            </div>
+            <div class="alat mt-3">
+                <div class="row">
                     @if ($alat->count())
                     @foreach ($alat as $alat)
                     <div class="col-lg-3 mt-2">

@@ -12,4 +12,9 @@ class Lab extends Model
     protected $table = 'lab';
 
     protected $guarded = ['id'];
+
+    public function alat()
+    {
+        return $this->hasMany(Alat::class);
+    }
 }

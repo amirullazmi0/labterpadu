@@ -11,6 +11,9 @@
             </ul>
         </div>
         <?php endif; ?>
+        <?php if($ruangan->count() == null): ?>
+        <div class="alert alert-warning" role="alert">Anda Harus mengisi daftar Ruangan terlebih dahulu !!!</div>
+        <?php endif; ?>
         <div class="tambah-dosen">
             <form action="/admin/store-p-ruangan" method="POST" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
@@ -26,8 +29,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="name"
-                                id="name" value="<?php echo e(old('name')); ?>" required autofocus>
+unset($__errorArgs, $__bag); ?>" name="name" id="name"
+                                value="<?php echo e(old('name')); ?>" required autofocus>
                             <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -46,6 +49,7 @@ unset($__errorArgs, $__bag); ?>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="phone" class="form-label">Ruangan</label>
+                            <?php if($ruangan->count()): ?>
                             <select class="form-select <?php $__errorArgs = ['ruangan_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -60,6 +64,9 @@ unset($__errorArgs, $__bag); ?>" name="ruangan_id"
                                 <option value="<?php echo e($ruangan->id); ?>"><?php echo e($ruangan->name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
+                            <?php else: ?>
+                            <input type="text" class="form-control" placeholder="Tidak Ada Daftar Ruangan" name="alat" disabled>
+                            <?php endif; ?>
                             <?php $__errorArgs = ['ruangan_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -80,13 +87,11 @@ unset($__errorArgs, $__bag); ?>
                             <div class="card-header bg-dark p-3">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="inlineRadio1">Satu Hari</label>
-                                    <input class="form-check-input" type="radio" name="show_Form" id="satuhari"
-                                        onclick="showForm()">
+                                    <input class="form-check-input" type="radio" name="show_Form" id="satuhari" onclick="showForm()">
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="inlineRadio2">Banyak Hari</label>
-                                    <input class="form-check-input" type="radio" name="show_Form" id="banyakhari"
-                                        onclick="showForm()">
+                                    <input class="form-check-input" type="radio" name="show_Form" id="banyakhari" onclick="showForm()">
                                 </div>
                             </div>
                             <div class="card-body">
@@ -94,8 +99,7 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="col-lg-6" id="showsatuhari" style="display: none;">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Tanggal Mulai</label>
-                                            <input type="date"
-                                                class="form-control <?php $__errorArgs = ['date_start'];
+                                            <input type="date" class="form-control <?php $__errorArgs = ['date_start'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -122,16 +126,15 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="col-6 " id="showbanyakhari" style="display: none;">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Tanggal Selesai</label>
-                                            <input type="date"
-                                                class="form-control <?php $__errorArgs = ['date_end'];
+                                            <input type="date" class="form-control <?php $__errorArgs = ['date_end'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                                                name="date_end" id="date_end" value="<?php echo e(old('date_end')); ?>" autofocus>
+unset($__errorArgs, $__bag); ?>" name="date_end"
+                                                id="date_end" value="<?php echo e(old('date_end')); ?>" autofocus>
                                             <?php $__errorArgs = ['date_end'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -158,8 +161,7 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Waktu Mulai</label>
-                                            <input type="time"
-                                                class="form-control <?php $__errorArgs = ['time_start'];
+                                            <input type="time" class="form-control <?php $__errorArgs = ['time_start'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -167,8 +169,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                                name="time_start" id="time_start" value="<?php echo e(old('time_start')); ?>"
-                                                autofocus>
+                                                name="time_start" id="time_start" value="<?php echo e(old('time_start')); ?>" autofocus>
                                             <?php $__errorArgs = ['time_start'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -187,16 +188,15 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Waktu Selesai</label>
-                                            <input type="time"
-                                                class="form-control <?php $__errorArgs = ['time_end'];
+                                            <input type="time" class="form-control <?php $__errorArgs = ['time_end'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                                                name="time_end" id="time_end" value="<?php echo e(old('time_end')); ?>">
+unset($__errorArgs, $__bag); ?>" name="time_end"
+                                                id="time_end" value="<?php echo e(old('time_end')); ?>">
                                             <?php $__errorArgs = ['time_end'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -257,8 +257,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                                name="berkas" id="berkas" value="<?php echo e(old('berkas')); ?>" autofocus>
+unset($__errorArgs, $__bag); ?>" name="berkas"
+                                id="berkas" value="<?php echo e(old('berkas')); ?>" autofocus>
                             <?php $__errorArgs = ['berkas'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

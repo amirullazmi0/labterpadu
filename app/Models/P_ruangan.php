@@ -14,7 +14,9 @@ class P_ruangan extends Model
     protected $table = 'p_ruangan';
 
     protected $guarded = ['id'];
+
     public function ruangan()
+
     {
         return $this->belongsTo(Ruangan::class);
     }

@@ -13,6 +13,9 @@
             </ul>
         </div>
         @endif
+        @if($ruangan->count() == null)
+        <div class="alert alert-warning" role="alert">Anda Harus mengisi daftar Ruangan terlebih dahulu !!!</div>
+        @endif
         <div class="tambah-dosen">
             <form action="/admin/store-p-ruangan" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -21,8 +24,8 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="full-name" class="form-label">Nama Penguna / Instansi</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                id="name" value="{{ old('name') }}" required autofocus>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
+                                value="{{ old('name') }}" required autofocus>
                             @error('name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -33,6 +36,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="phone" class="form-label">Ruangan</label>
+                            @if ($ruangan->count())
                             <select class="form-select @error('ruangan_id') is-invalid @enderror" name="ruangan_id"
                                 id="exampleFormControlSelect1">
                                 <option selected="" disabled hidden>Pilih Ruangan</option>
@@ -40,6 +44,9 @@
                                 <option value="{{ $ruangan->id }}">{{ $ruangan->name }}</option>
                                 @endforeach
                             </select>
+                            @else
+                            <input type="text" class="form-control" placeholder="Tidak Ada Daftar Ruangan" name="alat" disabled>
+                            @endif
                             @error('ruangan_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -52,13 +59,11 @@
                             <div class="card-header bg-dark p-3">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="inlineRadio1">Satu Hari</label>
-                                    <input class="form-check-input" type="radio" name="show_Form" id="satuhari"
-                                        onclick="showForm()">
+                                    <input class="form-check-input" type="radio" name="show_Form" id="satuhari" onclick="showForm()">
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="inlineRadio2">Banyak Hari</label>
-                                    <input class="form-check-input" type="radio" name="show_Form" id="banyakhari"
-                                        onclick="showForm()">
+                                    <input class="form-check-input" type="radio" name="show_Form" id="banyakhari" onclick="showForm()">
                                 </div>
                             </div>
                             <div class="card-body">
@@ -66,8 +71,7 @@
                                     <div class="col-lg-6" id="showsatuhari" style="display: none;">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Tanggal Mulai</label>
-                                            <input type="date"
-                                                class="form-control @error('date_start') is-invalid @enderror"
+                                            <input type="date" class="form-control @error('date_start') is-invalid @enderror"
                                                 name="date_start" id="date_start" value="{{ old('date_start') }}">
                                             @error('date_start')
                                             <div class="invalid-feedback">
@@ -79,9 +83,8 @@
                                     <div class="col-6 " id="showbanyakhari" style="display: none;">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Tanggal Selesai</label>
-                                            <input type="date"
-                                                class="form-control @error('date_end') is-invalid @enderror"
-                                                name="date_end" id="date_end" value="{{ old('date_end') }}" autofocus>
+                                            <input type="date" class="form-control @error('date_end') is-invalid @enderror" name="date_end"
+                                                id="date_end" value="{{ old('date_end') }}" autofocus>
                                             @error('date_end')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -100,10 +103,8 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Waktu Mulai</label>
-                                            <input type="time"
-                                                class="form-control @error('time_start') is-invalid @enderror"
-                                                name="time_start" id="time_start" value="{{ old('time_start') }}"
-                                                autofocus>
+                                            <input type="time" class="form-control @error('time_start') is-invalid @enderror"
+                                                name="time_start" id="time_start" value="{{ old('time_start') }}" autofocus>
                                             @error('time_start')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -114,9 +115,8 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="full-name" class="form-label">Waktu Selesai</label>
-                                            <input type="time"
-                                                class="form-control @error('time_end') is-invalid @enderror"
-                                                name="time_end" id="time_end" value="{{ old('time_end') }}">
+                                            <input type="time" class="form-control @error('time_end') is-invalid @enderror" name="time_end"
+                                                id="time_end" value="{{ old('time_end') }}">
                                             @error('time_end')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -147,8 +147,8 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="full-name" class="form-label">File (.pdf)</label>
-                            <input type="file" accept=".pdf" class="form-control @error('berkas') is-invalid @enderror"
-                                name="berkas" id="berkas" value="{{ old('berkas') }}" autofocus>
+                            <input type="file" accept=".pdf" class="form-control @error('berkas') is-invalid @enderror" name="berkas"
+                                id="berkas" value="{{ old('berkas') }}" autofocus>
                             @error('berkas')
                             <div class="invalid-feedback">
                                 {{ $message }}
