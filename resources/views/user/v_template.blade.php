@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ $title }}</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/untan.png" />
 
@@ -30,7 +30,11 @@
     <!-- RTL Css -->
     <link rel="stylesheet" href="/assets/css/rtl.min.css" />
 
-    <script src='fullcalendar/dist/index.global.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/index.global.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <!-- Fullcalender CSS
     <link rel='stylesheet' href='/assets/vendor/fullcalendar/core/main.css' />
@@ -76,6 +80,7 @@
 
     <!-- mapchart Script -->
     <script src="/assets/js/charts/vectore-chart.js"></script>
+
     <script src="/assets/js/charts/dashboard.js"></script>
 
     <!-- fslightbox Script -->
@@ -95,6 +100,8 @@
 
     <!-- App Script -->
     <script src="/assets/js/hope-ui.js" defer></script>
+
+    {{-- <script src="/assets/js/myjs.js"></script> --}}
 
     <!-- Fullcalender Javascript
     <script src='/assets/vendor/fullcalendar/core/main.js'></script>
