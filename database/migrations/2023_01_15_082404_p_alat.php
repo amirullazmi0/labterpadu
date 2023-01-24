@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name', 30);
             $table->foreignid('alat_id')->on('alat');
             $table->foreignId('lab_id')->on('lab');
+            $table->string('event', 30);
             $table->date('date_start');
             $table->date('date_end')->nullable();
             // $table->time('time_start');

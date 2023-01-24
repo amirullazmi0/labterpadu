@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <label for="full-name" class="form-label">Nama Penguna / Instansi</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
-                                value="{{ old('name', $p_ruangan->name) }}" required>
+                                value="{{ old('name', $p_ruangan->name) }}" maxlength="30" autofocus required>
                             @error('name')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -41,8 +41,20 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="full-name" class="form-label">Event / Kegiatan</label>
+                            <input type="text" class="form-control @error('event') is-invalid @enderror" name="event" id="event"
+                                value="{{ old('event', $p_ruangan->event) }}" maxlength="30" required autofocus>
+                            @error('event')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
                         <div class="card">
-                            <div class="card-header bg-dark p-3">
+                            <div class="card-header p-3" style="background-color: rgb(91, 79, 252);color: white;">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="inlineRadio1">Satu Hari</label>
                                     @if($p_ruangan->date_end == null)

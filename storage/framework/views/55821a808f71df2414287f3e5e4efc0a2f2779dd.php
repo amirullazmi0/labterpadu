@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 
 <div class="card">
@@ -31,7 +29,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="name" id="name"
-                                value="<?php echo e(old('name', $p_alat->name)); ?>" required autofocus>
+                                value="<?php echo e(old('name', $p_alat->name)); ?>" maxlength="30" required autofocus>
                             <input type="text" class="form-control <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -96,8 +94,35 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                     <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="full-name" class="form-label">Event / Kegiatan</label>
+                            <input type="text" class="form-control <?php $__errorArgs = ['event'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" name="event" id="event"
+                                value="<?php echo e(old('event', $p_alat->event)); ?>" maxlength="30" required autofocus>
+                            <?php $__errorArgs = ['event'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="invalid-feedback">
+                                <?php echo e($message); ?>
+
+                            </div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
                         <div class="card">
-                            <div class="card-header bg-dark p-3">
+                            <div class="card-header p-3" style="background-color: rgb(91, 79, 252);color: white;">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="inlineRadio1">Satu Hari</label>
                                     <?php if($p_alat->date_end == null): ?>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 30);
             $table->foreignId('ruangan_id')->on('ruangan');
+            $table->string('event', 30);
             $table->date('date_start');
             $table->date('date_end')->nullable();
             $table->time('time_start');

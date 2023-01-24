@@ -31,9 +31,13 @@ class UserController extends Controller
             "p_alat" => P_alat::all(),
         ];
 
+        $ruangan = Ruangan::all();
         $p_ruangan = P_ruangan::all();
 
-        return view('/user/index', ($data), compact('p_ruangan'));
+        $alat = Alat::all();
+        $p_alat = P_alat::all();
+
+        return view('/user/index', ($data), compact('p_ruangan', 'p_alat', 'ruangan', 'alat'));
 
         // return response()->json('p_ruangan');
     }

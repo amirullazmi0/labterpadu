@@ -190,7 +190,7 @@ class AdminController extends Controller
         $validateData = $request->validate([
             'name' => 'required|max:50|unique:alat',
             'lab_id' => 'required',
-            'photos' => 'image|file|max:2048',
+            'photos' => 'required|image|file|max:2048',
             'desc' => 'nullable'
         ]);
 
@@ -242,7 +242,7 @@ class AdminController extends Controller
 
         if ($request->file('photos')) {
 
-            $rules['photos'] = 'image|file|max:2048';
+            $rules['photos'] = 'required|image|file|max:2048';
 
             $validateData = $request->validate($rules);
 
@@ -297,6 +297,7 @@ class AdminController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|max:30',
+            'event' => 'required|max:30',
             'alat_id' => 'required',
             'lab_id' => 'required',
             'date_start' => 'required|date_format:Y-m-d',
@@ -307,7 +308,7 @@ class AdminController extends Controller
             'berkas' => 'nullable|file|max:2048'
         ]);
 
-
+        // dd($validateData);
         if ($request->file('berkas')) {
             $validateData['berkas'] = $request->file('berkas')->store('/file/p_alat');
         }
@@ -345,6 +346,7 @@ class AdminController extends Controller
     {
         $rules = ([
             'name' => 'required|max:30',
+            'event' => 'required|max:30',
             'alat_id' => 'required',
             'lab_id' => 'required',
             'date_start' => 'required|date_format:Y-m-d',
@@ -355,7 +357,6 @@ class AdminController extends Controller
         ]);
 
         $validateData = $request->validate($rules);
-
         if ($request->file('berkas')) {
 
             $rules['berkas'] = 'image|file|max:2048';

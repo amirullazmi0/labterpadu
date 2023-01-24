@@ -31,10 +31,18 @@
     <link rel="stylesheet" href="/assets/css/rtl.min.css" />
 
 
+    {{--
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/main.min.css" rel="stylesheet"> --}}
+
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/index.global.min.js"></script>
 
+    {{-- <script src='/assets/fullcalendar/dist/index.global.js'></script> --}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/moment"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <!-- Fullcalender CSS
     <link rel='stylesheet' href='/assets/vendor/fullcalendar/core/main.css' />

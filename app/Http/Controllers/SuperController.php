@@ -481,14 +481,15 @@ class SuperController extends Controller
         $validateData = $request->validate([
             'name' => 'required|max:30',
             'ruangan_id' => 'required',
+            'event' => 'required|max:30',
             'date_start' => 'required|date_format:Y-m-d',
             'date_end' => 'nullable|date_format:Y-m-d',
-            'time_start' => 'required|date_format:H:i',
-            'time_end' => 'required|date_format:H:i',
+            'time_start' => 'required',
+            'time_end' => 'required',
             'desc' => 'nullable',
             'berkas' => 'nullable|file|max:2048'
         ]);
-
+        // dd($request);
         if ($request->file('berkas')) {
             $validateData['berkas'] = $request->file('berkas')->store('/file/p_ruangan');
         }
@@ -526,10 +527,11 @@ class SuperController extends Controller
         $rules = ([
             'name' => 'required|max:30',
             'ruangan_id' => 'required',
+            'event' => 'required|max:30',
             'date_start' => 'required|date_format:Y-m-d',
             'date_end' => 'nullable|date_format:Y-m-d',
-            'time_start' => 'required|date_format:H:i:s',
-            'time_end' => 'required|date_format:H:i:s',
+            'time_start' => 'required',
+            'time_end' => 'required',
             'desc' => 'nullable',
         ]);
 
