@@ -34,6 +34,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama / Instansi</th>
+                        <th>Event</th>
                         <th>Ruangan</th>
                         <th>Tanggal</th>
                         <th>Aksi</th>
@@ -46,6 +47,11 @@
                         <td>
                             <h6 class="">
                                 <a class="text-dark" href="/admin/p-ruangan/{{ $p_ruangan->id }}">{{ $p_ruangan->name }}</a>
+                            </h6>
+                        </td>
+                        <td>
+                            <h6 class="">
+                                {{ $p_ruangan->event }}
                             </h6>
                         </td>
                         <td>

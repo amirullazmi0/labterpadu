@@ -378,7 +378,8 @@ class SuperController extends Controller
         $validateData = $request->validate([
             'name' => 'required|max:50|unique:ruangan',
             'photos' => 'image|file|max:2048',
-            'desc' => 'nullable'
+            'desc' => 'nullable',
+            'color' => 'nullable',
         ]);
 
         if ($request->file('photos')) {
@@ -414,7 +415,8 @@ class SuperController extends Controller
     public function update_ruangan(Request $request, Ruangan $ruangan)
     {
         $rules = ([
-            'desc' => 'nullable'
+            'desc' => 'nullable',
+            'color' => 'nullable',
         ]);
 
         if ($request->name != $ruangan->name) {
@@ -489,7 +491,12 @@ class SuperController extends Controller
             'desc' => 'nullable',
             'berkas' => 'nullable|file|max:2048'
         ]);
+
         // dd($request);
+        // if ($request->date_end == null) {
+        //     $validateData['date_end'] = $request->date_start;
+        // }
+
         if ($request->file('berkas')) {
             $validateData['berkas'] = $request->file('berkas')->store('/file/p_ruangan');
         }
@@ -535,7 +542,12 @@ class SuperController extends Controller
             'desc' => 'nullable',
         ]);
 
+
         $validateData = $request->validate($rules);
+
+        // if ($request->date_end == null) {
+        //     $validateData['date_end'] = $request->date_start;
+        // }
 
         if ($request->file('berkas')) {
 

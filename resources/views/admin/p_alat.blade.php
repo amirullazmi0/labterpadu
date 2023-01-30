@@ -45,7 +45,7 @@
                         <td scope="row">{{ $nomor++ }}</td>
                         <td>
                             <h6 class="">
-                                <a class="text-dark" href="/aadmin/laboratorium/p-alat/{{ $p_alat->id }}">{{ $p_alat->name }}</a>
+                                <a class="text-dark" href="/aadmin/laboratorium/p-alat/{{ $p_alat->id }}">{{ $p_alat->event }}</a>
                             </h6>
                         </td>
                         <td>

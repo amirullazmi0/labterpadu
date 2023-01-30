@@ -35,6 +35,7 @@
                         <th>No</th>
                         <th>Gambar</th>
                         <th>Nama alat</th>
+                        <th>Warna</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -51,6 +52,13 @@
                             <h6 class="">
                                 <a class="text-dark" href="/aadmin/laboratorium/alat/<?php echo e($alat->name); ?>"><?php echo e($alat->name); ?></a>
                             </h6>
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <div class="bulat"
+                                    style="height: 40px; width: 40px;border-radius: 20px;background-color: <?php echo e($alat->color); ?>">
+                                </div>
+                            </div>
                         </td>
                         <td>
                             <div class="d-flex justify-content-center">

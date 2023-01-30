@@ -34,6 +34,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama / Instansi</th>
+                        <th>Event</th>
                         <th>Ruangan</th>
                         <th>Tanggal</th>
                         <th>Aksi</th>
@@ -46,6 +47,12 @@
                         <td>
                             <h6 class="">
                                 <a class="text-dark" href="/admin/p-ruangan/<?php echo e($p_ruangan->id); ?>"><?php echo e($p_ruangan->name); ?></a>
+                            </h6>
+                        </td>
+                        <td>
+                            <h6 class="">
+                                <?php echo e($p_ruangan->event); ?>
+
                             </h6>
                         </td>
                         <td>

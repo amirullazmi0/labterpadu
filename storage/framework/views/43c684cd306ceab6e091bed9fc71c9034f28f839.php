@@ -45,7 +45,7 @@
                         <td scope="row"><?php echo e($nomor++); ?></td>
                         <td>
                             <h6 class="">
-                                <a class="text-dark" href="/aadmin/laboratorium/p-alat/<?php echo e($p_alat->id); ?>"><?php echo e($p_alat->name); ?></a>
+                                <a class="text-dark" href="/aadmin/laboratorium/p-alat/<?php echo e($p_alat->id); ?>"><?php echo e($p_alat->event); ?></a>
                             </h6>
                         </td>
                         <td>

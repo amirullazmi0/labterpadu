@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->foreignId('lab_id')->on('lab');
+            $table->string('color')->nullable();
             $table->longText('desc')->nullable();
             $table->string('photos')->nullable();
             $table->timestamps();

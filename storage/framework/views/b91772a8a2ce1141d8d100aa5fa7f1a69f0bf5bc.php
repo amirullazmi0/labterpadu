@@ -34,6 +34,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Ruangan</th>
+                        <th>Warna</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -45,6 +46,13 @@
                             <h6 class="">
                                 <a class="text-dark" href="/admin/ruangan/<?php echo e($ruangan->id); ?>"><?php echo e($ruangan->name); ?></a>
                             </h6>
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <div class="bulat"
+                                    style="height: 40px; width: 40px;border-radius: 20px;background-color: <?php echo e($ruangan->color); ?>">
+                                </div>
+                            </div>
                         </td>
                         <td>
                             <div class="d-flex justify-content-center">

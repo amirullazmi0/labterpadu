@@ -37,7 +37,9 @@ class UserController extends Controller
         $alat = Alat::all();
         $p_alat = P_alat::all();
 
-        return view('/user/index', ($data), compact('p_ruangan', 'p_alat', 'ruangan', 'alat'));
+        $lab = Lab::all();
+
+        return view('/user/index', ($data), compact('p_ruangan', 'p_alat', 'ruangan', 'alat', 'lab'));
 
         // return response()->json('p_ruangan');
     }

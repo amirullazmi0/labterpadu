@@ -14,9 +14,9 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">Deskripsi</div>
+                    <div class="col-4">Deskripsi</div>
                     <div class="col-1">:</div>
-                    <div class="col-8">
+                    <div class="col-lg-6">
                         <?php if($alat->desc): ?>
                         <?php echo e($alat->desc); ?>
 
@@ -26,13 +26,24 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3">Lab</div>
+                    <div class="col-4">Lab</div>
                     <div class="col-1">:</div>
-                    <div class="col-8"><?php echo e($alat->lab->name); ?></div>
+                    <div class="col-6"><?php echo e($alat->lab->name); ?></div>
+                </div>
+                <div class="row">
+                    <div class="col-4">Warna</div>
+                    <div class="col-1">:</div>
+                    <div class="col-6">
+                        <div class="d-flex justify-content-start">
+                            <?php echo e($alat->color); ?>
+
+                            <div class="ms-3 box" style="width: 100px; height: 25px; background-color: <?php echo e($alat->color); ?>"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end mt-4">
             <a class="btn btn-primary btn-sm m-1 rounded" href="/dosen/laboratorium">
                 <svg width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

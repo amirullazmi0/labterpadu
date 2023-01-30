@@ -190,6 +190,7 @@ class AdminController extends Controller
         $validateData = $request->validate([
             'name' => 'required|max:50|unique:alat',
             'lab_id' => 'required',
+            'color' => 'nullable',
             'photos' => 'required|image|file|max:2048',
             'desc' => 'nullable'
         ]);
@@ -231,7 +232,8 @@ class AdminController extends Controller
     {
         $rules = ([
             'lab_id' => 'required',
-            'desc' => 'nullable'
+            'desc' => 'nullable',
+            'color' => 'nullable',
         ]);
 
         if ($request->name != $alat->name) {

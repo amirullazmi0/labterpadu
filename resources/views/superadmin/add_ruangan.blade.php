@@ -32,7 +32,19 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="full-name" class="form-label">Warna</label>
+                            <input type="color" class="form-control @error('color') is-invalid @enderror" name="color" id="color"
+                                value="{{ old('color') }}">
+                            @error('color')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
                         <div class="form-group">
                             <label for="phone" class="form-label">Deskripsi</label>
                             <textarea class="form-control  @error('desc') is-invalid @enderror" name="desc" id="exampleFormControlTextarea1"
